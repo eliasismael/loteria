@@ -1,0 +1,42 @@
+body {
+  background-color: orange;
+}
+
+#cuadrito {
+    background-color: #ffffff;
+    margin: 100px;
+    padding: 100px;
+    border: 2px solid rgb(11, 8, 89);
+    text-align: center;
+    border-radius: 2%;
+  }
+
+  #h1-cuadradito {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 75px;
+    padding: 0%;
+  }
+
+  form {
+    background-color: #ffffff;
+  }
+
+  #comprarTicketX10 {
+    margin: 1em;
+  }
+
+#participante {
+    background-color: #ffffff;
+}
+
+#felicitacion, #nombreGanador {
+    text-align: center;
+    color: #ffffff;
+}
+
+#añadido {
+    background-color: #ffffff;
+    color: green;
+    position: relative;
+}
