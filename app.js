@@ -7,7 +7,6 @@ const añadido = document.getElementById("añadido");
 const resetear = document.getElementById("resetear");
 
 let participantes = [];
-let cantidadParticipantes = participantes.length;
 let monto = 0;
 
 comprarTicketX10.addEventListener("click", inscribirParticipanteX10);
@@ -83,7 +82,7 @@ function elegirGanador() {
   if (participantes.length == 0) alert("No hay ningún participante");
   else {
     felicitacion.innerHTML = `El ganador es...`;
-    let numeroRandom = parseInt(Math.random() * 100);
+    let numeroRandom = Math.floor((Math.random() * participantes.length));
 
     // Esto es por si nos toca un número rándom mayor que la cantidad de participantes
     while (numeroRandom > participantes.length - 1) {
