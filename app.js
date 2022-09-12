@@ -17,29 +17,25 @@ resetear.addEventListener("click", resetearLoteria);
 function inscribirParticipanteX10(event) {
   event.preventDefault();
 
-  if (participantes.length == 100) alert("La cantidad máxima es 100 participantes");
+  let participante = document.getElementById("participante").value;
+  participante = participante.toUpperCase();
+  // Lo ponemos todo en mayuscula para que no escriban el mismo nombre alternando en minúsculas y mayúsculas
+
+  if (participante === "") alert("¿Quién está comprando el ticket?"); // si no ponen nada
+  else if (!isNaN(parseInt(participante))) alert("Poné un nombre válido"); // si ponen un numero
+  else if (participantes.includes(participante)) alert("Esa persona ya está inscripta");
   else {
+    participantes.push(participante);
 
-    let participante = document.getElementById("participante").value;
-    participante = participante.toUpperCase();
-    // Lo ponemos todo en mayuscula para que no escriban el mismo nombre alternando en minúsculas y mayúsculas
+    añadido.innerHTML = "¡Añadido con éxito!".toUpperCase();
 
-    if (participante === "") alert("¿Quién está comprando el ticket?"); // si no ponen nada
-    else if (!isNaN(parseInt(participante))) alert("Poné un nombre válido"); // si ponen un numero
-    else if (participantes.includes(participante)) alert("Esa persona ya está inscripta");
-    else {
-      participantes.push(participante);
+    setTimeout(() => {
+      añadido.innerHTML = "";
+    }, 1000);
 
-      añadido.innerHTML = "¡Añadido con éxito!".toUpperCase();
+    monto += 10;
 
-      setTimeout(() => {
-        añadido.innerHTML = "";
-      }, 1000);
-
-      monto += 10;
-
-      console.log(participantes);
-    }
+    console.log(participantes);
   }
 }
 
@@ -47,31 +43,27 @@ function inscribirParticipanteX10(event) {
 function inscribirParticipanteX20(event) {
   event.preventDefault();
 
-  if (participantes.length == 100) alert("La cantidad máxima es 100 participantes");
-  else if (participantes.length == 99) alert("No puedo inscribir a más personas por $20");
+  let participante = document.getElementById("participante").value;
+  participante = participante.toUpperCase();
+
+  if (participante === "") alert("¿Quién está comprando el ticket?");
+  else if (!isNaN(parseInt(participante))) alert("Poné un nombre válido");
+  else if (participantes.includes(participante)) alert("Esa persona ya está inscripta");
+
   else {
-    let participante = document.getElementById("participante").value;
-    participante = participante.toUpperCase();
-
-    if (participante === "") alert("¿Quién está comprando el ticket?");
-    else if (!isNaN(parseInt(participante))) alert("Poné un nombre válido");
-    else if (participantes.includes(participante)) alert("Esa persona ya está inscripta");
-
-    else {
-      for (i = 0; i < 2; i++) {
-        participantes.push(participante);
-      }
-
-      añadido.innerHTML = "¡Añadido con éxito!".toUpperCase();
-
-      setTimeout(() => {
-        añadido.innerHTML = "";
-      }, 1000);
-
-      monto += 20;
-
-      console.log(participantes);
+    for (i = 0; i < 2; i++) {
+      participantes.push(participante);
     }
+
+    añadido.innerHTML = "¡Añadido con éxito!".toUpperCase();
+
+    setTimeout(() => {
+      añadido.innerHTML = "";
+    }, 1000);
+
+    monto += 20;
+
+    console.log(participantes);
   }
 }
 
