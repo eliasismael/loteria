@@ -84,11 +84,6 @@ function elegirGanador() {
     felicitacion.innerHTML = `El ganador es...`;
     let numeroRandom = Math.floor((Math.random() * participantes.length));
 
-    // Esto es por si nos toca un número rándom mayor que la cantidad de participantes
-    while (numeroRandom > participantes.length - 1) {
-      numeroRandom = parseInt(Math.random() * 100);
-    }
-
     for (i in participantes) {
 
       // Como el índice en el array es una string, lo comparo con el numero random con == y no con ===
